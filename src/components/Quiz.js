@@ -1,6 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import Question from "./Question";
 import { QuizContext } from "../contexts/quiz";
+import { useNavigate } from "react-router-dom";
+import Btn from "./Button";
+// import { Button } from "@material-ui/core";
+
 
 
 
@@ -8,13 +12,11 @@ import { QuizContext } from "../contexts/quiz";
 
 
 const Quiz = () => {
-
+          const navigate = useNavigate()
           const [state, dispatch] = useContext(QuizContext);
           let numberOfQuestion = state.currentQuestionIndex;
           let maxNumberOfQuestion = state.questions.length;
-          console.log("quiz", state);
-
-          const apiUrl = `https://opentdb.com/api.php?amount=3&category=${state.setCategory}&difficulty=${state.setDifficulty}&type=multiple&encode=url3986`
+          const apiUrl = `https://opentdb.com/api.php?amount=${state.setNumber}&category=${state.setCategory}&difficulty=${state.setDifficulty}&type=multiple&encode=url3986`
           useEffect(() => {
                     if (state.questions.length > 0) {
                               return
@@ -27,6 +29,13 @@ const Quiz = () => {
                               })
           })
 
+          const startNewQuiz = () => {
+                    dispatch({ type: "START_NEW_QUIZ" })
+                    navigate("/")
+          }
+          const goNextQuestion = () => {
+                    if (state.currentAwswer) dispatch({ type: "NEXT_QUESTION" })
+          }
 
 
 
@@ -43,7 +52,17 @@ const Quiz = () => {
                                                             <div>You have completed the quiz.</div>
                                                             <div>You've go {state.correctAnswersCount} of {maxNumberOfQuestion}</div>
                                                   </div>
-                                                  <div className="next_button" onClick={() => dispatch({ type: "RESTART" })}>Restart</div>
+                                                  <div className="button_block">
+
+                                                            <Btn text="Restart"
+                                                                      width="300"
+                                                                      func={() => dispatch({ type: "RESTART" })} />
+
+                                                            <Btn text="New quiz"
+                                                                      width="300"
+                                                                      func={startNewQuiz} />
+
+                                                  </div>
                                         </div>
 
                               )}
@@ -52,7 +71,11 @@ const Quiz = () => {
                                         < div >
                                                   <div className="score">Question {numberOfQuestion + 1}/{maxNumberOfQuestion}</div>
                                                   <Question />
-                                                  <div className="next_button" onClick={() => dispatch({ type: "NEXT_QUESTION" })}>Next question</div>
+                                                  <div className="next_button">
+                                                            <Btn text="Next question"
+                                                                      width="300"
+                                                                      func={goNextQuestion} />
+                                                  </div>
 
 
                                         </div>)}

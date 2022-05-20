@@ -1,4 +1,4 @@
-const data = {
+const categoriesData = {
   categories: [
     { category: "General Knowledge", value: 9 },
     { category: "Books", value: 10 },
@@ -28,4 +28,4 @@ const data = {
 }
 
 
-export default data;
+export default categoriesData;

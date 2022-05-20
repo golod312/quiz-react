@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:wght@300&family=Poppins:ital,wght@0,100;0,200;1,100;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
 
 body {
-  background-color: white;
-  font-family:"Lato", sans-serif;
+  background: white url("https://img.freepik.com/free-vector/quiz-comic-pop-art-style_175838-505.jpg?w=1060") no-repeat right bottom fixed;
+  background-size: 300px 250px;
+  font-family: "Lato", sans-serif;
+
+}
+
+:root {
+  --lightBLue: #82B7E1;
+
 }
 
 div {
@@ -17,7 +24,7 @@ div {
 
 
 .question {
-  background:rgb(170, 170, 246);
+  background: var(--lightBLue);
   border-radius: 10px;
   color: rgb(0, 0, 0);
   padding: 10px;
@@ -29,14 +36,14 @@ div {
 }
 
 .results {
-  border: 1px solid rgb(170, 170, 246);
+  border: 1px solid var(--lightBLue);
   border-radius: 10px;
   height: 300px;
   text-align: center;
 }
 
 .congratulations {
-  background:rgb(170, 170, 246);
+  background: var(--lightBLue);
   border-radius: 8px 8px 0 0;
   padding: 20px;
   font-size: 36px;
@@ -50,11 +57,11 @@ div {
 }
 
 .answer {
- 
+
   border-radius: 10px;
   width: 48%;
   background: #fff;
-  border: 1px solid rgb(183, 183, 241);
+  border: 1px solid var(--lightBLue);
   min-height: 70px;
   cursor: pointer;
   margin-bottom: 30px;
@@ -69,7 +76,7 @@ div {
 }
 
 .answer_letter {
-  background:rgb(183, 183, 241);
+  background: var(--lightBLue);
   border-radius: 6px;
   font-size: 30px;
   color: #fff;
@@ -87,37 +94,29 @@ div {
 }
 
 .correct_answer {
-  border: 2px solid #1ea55b;
+  border: 2px solid #5FA878;
 }
 
 .correct_answer .answer_letter {
-  background: #1ea55b;
+  background: #5FA878;
 }
 
 .wrong_answer {
-  border: 2px solid #dc0a0a;
+  border: 2px solid #DB8D8E;
 }
 
 .wrong_answer .answer_letter {
-  background: #dc0a0a;
+  background: #DB8D8E;
 }
 
 .next_button {
-  margin: 0 auto;
-  color: rgb(0, 0, 0);
-  background:rgb(170, 170, 246);
-  border-radius: 10px;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 600;
   padding: 14px 75px;
-  text-transform: uppercase;
-  cursor: pointer;
   text-align: center;
 }
 
+
 .score {
-  background:rgb(170, 170, 246);
+  background: var(--lightBLue);
   border-radius: 10px;
   color: rgb(0, 0, 0);
   font-size: 18px;
@@ -135,11 +134,18 @@ div {
   pointer-events: none;
 }
 
-.select{
+.select {
   display: flex;
   flex-direction: column;
-  gap:20px;
+  gap: 20px;
   width: 70%;
   margin: 0 auto;
   margin-top: 100px;
+
+
+}
+
+.button_block {
+  display: flex;
+  justify-content: space-around;
 }

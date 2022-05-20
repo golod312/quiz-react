@@ -11,6 +11,7 @@ const initialState = {
           correctAnswersCount: 0,
           setCategory: "",
           setDifficulty: "",
+          setNumber: 10
 
 
 }
@@ -66,6 +67,7 @@ const reducer = (state, action) => {
 
                     }
                     case "SELECT_CATEGORY": {
+
                               return {
                                         ...state,
                                         setCategory: action.payload
@@ -77,6 +79,18 @@ const reducer = (state, action) => {
                                         ...state,
                                         setDifficulty: action.payload
                               }
+                    }
+
+                    case "SELECT_NUMBER_OF_QUESTIONS": {
+                              return {
+                                        ...state,
+                                        setNumber: action.payload
+
+                              }
+                    }
+
+                    case "START_NEW_QUIZ": {
+                              return initialState
                     }
 
                     default: {
